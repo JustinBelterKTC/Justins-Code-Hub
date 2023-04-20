@@ -1,3 +1,4 @@
+pip3 install paramiko
 import paramiko as pk
 
 def start_connection():
