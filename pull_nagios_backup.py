@@ -16,7 +16,7 @@ gitProjectSlug="python-test"
 
 startDir = os.getcwd()
 user = subprocess.check_output('whoami', shell=True).strip().decode('ascii')
-ssh_path = os.path.join(f"/{user}",".ssh")
+ssh_path = os.path.join(f"{user}",".ssh")
 ssh_key_path = os.path.join(ssh_path,"gitlab_key")
 
 # Create id for SSH key
