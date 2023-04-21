@@ -16,7 +16,7 @@ pipeline {
 
         sh '''
 
-          echo "hello world!"
+          python3 ./test.py
 
         '''
 
