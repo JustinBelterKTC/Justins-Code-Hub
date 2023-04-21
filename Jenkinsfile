@@ -9,14 +9,20 @@ pipeline {
   }
 
   stages {
+    
+    stage('cat README') {
 
-    stage('Hello') {
+      when {
+
+        branch "fix-*"
+
+      }
 
       steps {
 
         sh '''
 
-          python3 ./test.py
+          cat README.md
 
         '''
 
