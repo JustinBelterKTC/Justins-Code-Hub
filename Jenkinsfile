@@ -1,6 +1,15 @@
 pipeline {
 
   agent any
+  
+  parameters {
+    choice(name: 'branch',
+           choices: 'fix-123\nmain',
+           description: 'Which branch would you like to select?')
+    string(name: 'filename',
+           defaultValue: 'README.md',
+           description: 'Enter the name of the file you would like to cat.')
+  }
 
   options {
 
@@ -10,11 +19,11 @@ pipeline {
 
   stages {
     
-    stage('cat README') {
+    stage('cat file') {
 
       when {
 
-        branch "fix-*"
+        branch "${params.branch}"
 
       }
 
@@ -22,7 +31,7 @@ pipeline {
 
         sh '''
 
-          cat README.md
+          cat ${params.filename}
 
         '''
 
